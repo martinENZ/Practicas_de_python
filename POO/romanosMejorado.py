@@ -2,36 +2,35 @@
 
 
 class Romanos:
-    def __init__(self,numero):
-        self.numero = int(input("ingrese un numero menor al 100: "))
-    
-    uni=["I","II","III","IV","V","VI","VII","VIII","IX"]
-
-    dec=["X","XX","XXX","XL","L","LX","LXX","LXXX","XC"]
-    listaDecimal=[]
+    def __init__(self):
+        self.numero = numero=int(input("ingrese un numero menor al 100: "))
 
     def identificar(self):
-        if n <= 9:
-   #print("numero ingresado es una unidad")
-            print(uni[n-1])   
-        elif n == 10:
-            print(dec[0]) 
-        elif n >= 11 and n<=99:
-            #print("numero ingresado es una decena")   
-            while n > 0:
-                #print(n % 10)
-                listaDecimal.append(n % 10)
 
-                n = n // 10
-            #print(listaDecimal)
-            #print(list(reversed(listaDecimal)))
+        uni=["","I","II","III","IV","V","VI","VII","VIII","IX"]
+        dec=["X","XX","XXX","XL","L","LX","LXX","LXXX","XC"]
+        listaDecimal=[]
+
+        if self.numero <= 9:
+            print(uni[self.numero-1])   
+        elif self.numero >= 10 and self.numero<=99:
+              
+            while self.numero > 0:
+                listaDecimal.append(self.numero % 10)
+                self.numero = self.numero // 10
+
             listaOrdenada = list(reversed(listaDecimal))
-            #print("lista ordenada: ",listaOrdenada)
-            #print("elemento 0: ",listaOrdenada[0])
-
-            #print("elemento 1: ",listaOrdenada[1])
-            if listaOrdenada[0] == 1:
-               #print(uni[listaOrdenada[0]-1])
-                print("numero romano es:",dec[listaOrdenada[0]      -1],uni[listaOrdenada[1]-1])
+            print(listaOrdenada)
+            primerNumero = listaOrdenada[0]
+            segundoNumero = listaOrdenada[1]
+            print("numero romano: ",dec[primerNumero-1],uni[segundoNumero])
+                
         else:
             print("numero incorrecto")
+
+
+
+
+prueba=Romanos()
+
+prueba.identificar()
